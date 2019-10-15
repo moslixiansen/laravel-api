@@ -9,9 +9,11 @@
         "fideloper/proxy": "~3.3",
         "laravel/framework": "5.5.*",
         "laravel/tinker": "~1.0",
-        "tymon/jwt-auth": "1.0.0-rc.1"
+        "tymon/jwt-auth": "^1.0.0-rc.1",
+        "dingo/api": "2.0.0-alpha1"
     },
     "require-dev": {
+        "barryvdh/laravel-ide-helper": "^2.2",
         "filp/whoops": "~2.0",
         "fzaninotto/faker": "~1.4",
         "mockery/mockery": "~1.0",

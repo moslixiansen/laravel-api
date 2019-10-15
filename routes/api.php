@@ -1,7 +1,5 @@
 <?php
 
-use Illuminate\Http\Request;
-
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -13,16 +11,18 @@ use Illuminate\Http\Request;
 |
 */
 
-//Route::middleware('auth:api')->get('/user', function (Request $request) {
-//    return $request->user();
-//});
-
-Route::prefix('auth')->group(function($router) {
-    $router->post('login', 'AuthController@login');
-    $router->post('logout', 'AuthController@logout');
-
+$api = app('Dingo\Api\Routing\Router');
+$api->version('v1', ['namespace' => 'App\Http\Controllers\V1'], function ($api) {
+    $api->post('register', 'AuthController@register');
+    $api->post('login', 'AuthController@login');
+    $api->post('logout', 'AuthController@logout');
+    $api->post('refresh', 'AuthController@refresh');
+    $api->post('me', 'AuthController@me');
+    $api->get('test', 'AuthController@test');
 });
 
-Route::middleware('refresh.token')->group(function($router) {
-    $router->get('profile','UserController@profile');
+$api->version('v1', ['namespace' => 'App\Http\Controllers\V1'], function ($api) {
+    $api->group(['protected' => true, 'middleware' => 'api.auth'], function ($api) {
+        $api->resource('auth', \App\Http\Controllers\V1\AuthController::class);
+    });
 });
