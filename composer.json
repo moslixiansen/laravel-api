@@ -10,7 +10,7 @@
         "laravel/framework": "5.5.*",
         "laravel/tinker": "~1.0",
         "tymon/jwt-auth": "^1.0.0-rc.1",
-        "dingo/api": "2.0.0-alpha1"
+        "dingo/api": "2.2.3"
     },
     "require-dev": {
         "barryvdh/laravel-ide-helper": "^2.2",

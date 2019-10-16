@@ -2,12 +2,12 @@
 
 namespace App\Http\Controllers\V1;
 
-use App\Http\Controllers\Controller;
+use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use App\User;
+use App\Http\Controllers\BaseController;
 
-class AuthController extends Controller
+class AuthController extends BaseController
 {
     protected $guard = 'api';//设置使用guard为api选项验证，请查看config/auth.php的guards设置项，重要！
 
